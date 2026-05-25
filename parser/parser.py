@@ -25,12 +25,16 @@ class Parser:
 
         if expected_type and token.type != expected_type:
             raise Exception(
-                f"Expected {expected_type} but got {token.type}"
+                f"[Line {token.line}] "
+                f"Expected {expected_type.value} "
+                f"but got {token.type.value}"
             )
 
         if expected_value and token.value != expected_value:
             raise Exception(
-                f"Expected {expected_value} but got {token.value}"
+                f"[Line {token.line}] "
+                f"Expected '{expected_value}' "
+                f"but got '{token.value}'"
             )
 
         self.position += 1
