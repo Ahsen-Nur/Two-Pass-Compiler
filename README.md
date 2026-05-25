@@ -3,8 +3,6 @@
 
 # İçindekiler
 
-# İçindekiler
-
 1. [Proje Hakkında](#1-proje-hakkında)  
 2. [Projenin Amacı](#2-projenin-amacı)  
 3. [Compiler Nedir?](#3-compiler-nedir)  
