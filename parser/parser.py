@@ -71,6 +71,20 @@ class Parser:
         ):
             return self.parse_print()
 
+        # if
+        elif (
+            token.type == TokenType.KEYWORD
+            and token.value == "if"
+        ):
+            return self.parse_if()
+
+        # while
+        elif (
+            token.type == TokenType.KEYWORD
+            and token.value == "while"
+        ):
+            return self.parse_while()
+
         else:
             raise Exception(
                 f"Invalid statement at line {token.line}"
@@ -133,6 +147,124 @@ class Parser:
         node.add_child(expr)
 
         return node
+
+    def parse_if(self):
+
+        self.eat(TokenType.KEYWORD, "if")
+
+        self.eat(TokenType.DELIMITER, "(")
+
+        condition = self.parse_condition()
+
+        self.eat(TokenType.DELIMITER, ")")
+
+        if_block = self.parse_block()
+
+        node = ASTNode("IF")
+
+        node.add_child(condition)
+
+        node.add_child(if_block)
+
+        # else
+        if (
+            self.current_token().type == TokenType.KEYWORD
+            and self.current_token().value == "else"
+        ):
+
+            self.eat(TokenType.KEYWORD, "else")
+
+            else_block = self.parse_block()
+
+            node.add_child(else_block)
+
+        return node
+
+    def parse_while(self):
+
+        self.eat(TokenType.KEYWORD, "while")
+
+        self.eat(TokenType.DELIMITER, "(")
+
+        condition = self.parse_condition()
+
+        self.eat(TokenType.DELIMITER, ")")
+
+        block = self.parse_block()
+
+        node = ASTNode("WHILE")
+
+        node.add_child(condition)
+
+        node.add_child(block)
+
+        return node
+
+    def parse_block(self):
+
+        self.eat(TokenType.DELIMITER, "{")
+
+        node = ASTNode("BLOCK")
+
+        while self.current_token().value != "}":
+
+            stmt = self.parse_statement()
+
+            node.add_child(stmt)
+
+        self.eat(TokenType.DELIMITER, "}")
+
+        return node
+
+    def parse_condition(self):
+
+        left = self.parse_expression()
+
+        # comparison operators
+        if self.current_token().value in [
+            "==",
+            "!=",
+            "<",
+            ">",
+            "<=",
+            ">="
+        ]:
+
+            op = self.eat(TokenType.OPERATOR)
+
+            right = self.parse_expression()
+
+            op_node = ASTNode(
+                "CONDITION_OPERATOR",
+                op.value
+            )
+
+            op_node.add_child(left)
+            op_node.add_child(right)
+
+            left = op_node
+
+        # logical operators
+        while self.current_token().value in [
+            "&&",
+            "||"
+        ]:
+
+            logical_op = self.eat(TokenType.OPERATOR)
+
+            right_condition = self.parse_condition()
+
+            logic_node = ASTNode(
+                "LOGICAL_OPERATOR",
+                logical_op.value
+            )
+
+            logic_node.add_child(left)
+            logic_node.add_child(right_condition)
+
+            left = logic_node
+
+        return left
 
     def parse_expression(self):
 
