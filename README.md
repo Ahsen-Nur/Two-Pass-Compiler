@@ -3,26 +3,28 @@
 
 # İçindekiler
 
-1. Proje Hakkında  
-2. Projenin Amacı  
-3. Compiler Nedir?  
-4. Compiler Mimarisi  
-5. Kullanılan Teknolojiler  
-6. Proje Klasör Yapısı  
-7. Desteklenen Dil Özellikleri  
-8. Compiler Çalışma Mantığı  
-9. Lexical Analysis (Lexer)  
-10. Syntax Analysis (Parser)  
-11. Semantic Analysis  
-12. Abstract Syntax Tree (AST)  
-13. Symbol Table  
-14. Error Handling Sistemi  
-15. GUI Arayüzü  
-16. Kurulum Adımları  
-17. Projeyi Çalıştırma  
-18. Örnek Kodlar   
-19. Projenin Teknik Detayları     
-20. Sonuç  
+# İçindekiler
+
+1. [Proje Hakkında](#1-proje-hakkında)  
+2. [Projenin Amacı](#2-projenin-amacı)  
+3. [Compiler Nedir?](#3-compiler-nedir)  
+4. [Compiler Mimarisi](#4-compiler-mimarisi)  
+5. [Kullanılan Teknolojiler](#5-kullanılan-teknolojiler)  
+6. [Proje Klasör Yapısı](#6-proje-klasör-yapısı)  
+7. [Desteklenen Dil Özellikleri](#7-desteklenen-dil-özellikleri)  
+8. [Compiler Çalışma Mantığı](#8-compiler-çalışma-mantığı)  
+9. [Lexical Analysis (Lexer)](#9-lexical-analysis-lexer)  
+10. [Syntax Analysis (Parser)](#10-syntax-analysis-parser)  
+11. [Semantic Analysis](#11-semantic-analysis)  
+12. [Abstract Syntax Tree (AST)](#12-abstract-syntax-tree-ast)  
+13. [Symbol Table](#13-symbol-table)  
+14. [Error Handling Sistemi](#14-error-handling-sistemi)  
+15. [GUI Arayüzü](#15-gui-arayüzü)  
+16. [Kurulum Adımları](#16-kurulum-adımları)  
+17. [Projeyi Çalıştırma](#17-projeyi-çalıştırma)  
+18. [Örnek Kod](#18-örnek-kod)  
+19. [Projenin Teknik Detayları](#19-projenin-teknik-detayları)  
+20. [Sonuç](#20-sonuç)
 
 ---
 
