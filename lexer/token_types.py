@@ -1,0 +1,18 @@
+from enum import Enum
+
+
+class TokenType(Enum):
+
+    KEYWORD = "KEYWORD"
+    IDENTIFIER = "IDENTIFIER"
+
+    INTEGER_LITERAL = "INTEGER_LITERAL"
+    FLOAT_LITERAL = "FLOAT_LITERAL"
+    STRING_LITERAL = "STRING_LITERAL"
+
+    OPERATOR = "OPERATOR"
+    DELIMITER = "DELIMITER"
+
+    EOF = "EOF"
+
+    ERROR = "ERROR"
