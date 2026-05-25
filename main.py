@@ -136,76 +136,90 @@
 
 #-----------------------------------------------------------------
 
-from lexer.lexer import Lexer
-from parser.parser import Parser
-from semantic.semantic_analyzer import SemanticAnalyzer
+# from lexer.lexer import Lexer
+# from parser.parser import Parser
+# from semantic.semantic_analyzer import SemanticAnalyzer
 
 
-source_code = """
-int x;
-int y;
+# source_code = """
+# int x;
+# int y;
 
-x = 10;
-y = 5;
+# x = 10;
+# y = 5;
 
-if (x > y) {
+# if (x > y) {
 
-    print(x);
+#     print(x);
 
-}
-else {
+# }
+# else {
 
-    print(y);
+#     print(y);
 
-}
+# }
 
-while (x > 0) {
+# while (x > 0) {
 
-    x = x - 1;
+#     x = x - 1;
 
-}
-"""
-
-
-# LEXER
-lexer = Lexer(source_code)
-
-tokens = lexer.tokenize()
-
-print("\nTOKENS")
-print("-" * 50)
-
-for token in tokens:
-    print(token)
+# }
+# """
 
 
-# PARSER
-parser = Parser(tokens)
+# # LEXER
+# lexer = Lexer(source_code)
 
-ast = parser.parse()
+# tokens = lexer.tokenize()
 
-print("\nAST")
-print("-" * 50)
+# print("\nTOKENS")
+# print("-" * 50)
 
-ast.print_tree()
+# for token in tokens:
+#     print(token)
 
 
-# SEMANTIC
-semantic = SemanticAnalyzer()
+# # PARSER
+# parser = Parser(tokens)
 
-semantic.analyze(ast)
+# ast = parser.parse()
 
-print("\nSYMBOL TABLE")
-print("-" * 50)
+# print("\nAST")
+# print("-" * 50)
 
-for name, var_type in semantic.symbol_table.items():
-    print(f"{name} -> {var_type}")
+# ast.print_tree()
 
-print("\nSEMANTIC ERRORS")
-print("-" * 50)
 
-if semantic.errors:
-    for error in semantic.errors:
-        print(error)
-else:
-    print("No semantic errors")
+# # SEMANTIC
+# semantic = SemanticAnalyzer()
+
+# semantic.analyze(ast)
+
+# print("\nSYMBOL TABLE")
+# print("-" * 50)
+
+# for name, var_type in semantic.symbol_table.items():
+#     print(f"{name} -> {var_type}")
+
+# print("\nSEMANTIC ERRORS")
+# print("-" * 50)
+
+# if semantic.errors:
+#     for error in semantic.errors:
+#         print(error)
+# else:
+#     print("No semantic errors")
+
+#-----------------------------------------------------------------
+
+#*for testing the whole compiler in the GUI*
+import tkinter as tk
+
+from gui.compiler_gui import CompilerGUI
+
+
+root = tk.Tk()
+
+app = CompilerGUI(root)
+
+root.mainloop()
